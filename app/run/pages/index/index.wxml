@@ -1,0 +1,76 @@
+<!--index.wxml-->
+
+<modal title="我是标题" hidden="{{modalHidden}}" bindconfirm="modalConfirm" bindcancel="modalCandel">
+    <canvas canvas-id="shareCanvas" style="width:300px;height:400px"></canvas>
+  </modal>
+
+<!--index.wxml-->
+<view class="container" >
+  <!-- <view class='top'>11</view> -->
+  <view class="userinfo" style="background-image: url('http://121.40.108.60:88/run/AA.jpg');">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取我的步数 </button>
+    <block wx:else>
+      <view class='userinfo-c'>
+      <view class="userinfo-rank"></view>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"     mode="cover"></image> 
+        <text wx:if="{{!rank}}"class="userinfo-rank" size="">还未参与排名</text>
+        <text wx:else class="userinfo-rank" size="">排名：{{rank}}</text>
+      </view>
+        <view class='username-c'><text class="userinfo-nickname">{{userInfo.nickName}}</text></view>
+        <view class="paces">    
+          <view  class="paces-line">
+            <view  class="paces-num"><text class="rankpace-text"> 今日步数</text></view>
+            <view class="paces-num"><text class="rankpace"> {{pace}}</text></view>
+          </view>
+            <view  class="paces-line-2"><text > 今日已捐</text></view>
+            <view class="paces-line-3"><text > {{donate}}</text></view>
+            <view class="paces-line-4"><text> 总捐赠</text></view>
+            <view  class="paces-line-5"><text> {{donateall}}</text></view>
+        </view>
+        <button class="donateButton" size="mini"bindtap='join'>捐赠步数</button>
+        <view  class="paces-line">
+            <view  class="paces-num"><text class="rankpace-text"> 距离目标</text></view>
+            <view class="paces-num"><text class="rankpace"> {{100000-all}}</text></view>
+          </view>
+    </block>
+  </view>
+
+
+</view>
+<view class="item-box">
+  <view class="listTitle">
+     <button class="" disabled='true' >助力榜</button>
+  </view>
+  <view class="listField">
+     <view class="item">
+      <i class="item-rank">排名</i>
+      <!-- <i class='blank'></i> -->
+       <i class="item-user">用户</i>
+      <span class="item-data">    
+       <i class="rankpace-head">已捐步数</i>
+      </span>
+    </view>
+  </view>
+  <view class="items" >
+    <view wx:for="{{list}}"  wx:key="{{index}}"  class="item">
+      <view class="rank-container">
+      <image class = "rank" wx:if="{{item.rank == 1}}"  src="./images/1.png"mode="cover"></image> 
+      <image class = "rank" wx:elif="{{item.rank == 2}}"  src="./images/2.png"mode="cover"></image> 
+      <image class = "rank" wx:elif="{{item.rank == 3}}"  src="./images/3.png"mode="cover"></image> 
+      <view class="rank" wx:else>
+            <i>{{item.rank}}</i>
+      </view>
+      </view>
+      <!-- <view class ="rank-content"></view> -->
+      <view class="item-icon-container">
+        <image class="item-icon" mode="widthFix" src="{{item.url}}"></image>
+          <i> {{item.name}}</i>
+      </view>
+      <view class="item-data-container">
+        <span class="item-data">    
+          <i class="rankpace"> {{item.pace}}</i>
+        </span>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "a",
+    "step": 500
+  },
+  {
+    "name": "b",
+    "step": 1500
+  },
+  {
+    "name": "c",
+    "step": 2500
+  },
+  {
+    "name": "d",
+    "step": 4500
+  },
+  {
+    "name": "e",
+    "step": 5400
+  },
+  {
+    "name": "f",
+    "step": 5100
+  },
+  {
+    "name": "g",
+    "step": 11500
+  },
+  {
+    "name": "h",
+    "step": 5040
+  },
+  {
+    "name": "i",
+    "step": 7500
+  },
+  {
+    "name": "g",
+    "step": 5020
+  },
+  {
+    "name": "k",
+    "step": 400
+  },
+  {
+    "name": "l",
+    "step": 700
+  },
+  {
+    "name": "m",
+    "step": 500
+  },
+  {
+    "name": "n",
+    "step": 12500
+  },
+  {
+    "name": "o",
+    "step": 5800
+  },
+  {
+    "name": "p",
+    "step": 570
+  }
+]
